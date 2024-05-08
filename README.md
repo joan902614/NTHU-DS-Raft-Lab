@@ -192,3 +192,6 @@ There are many other works can be done to improve the Raft we designed, the foll
 
 1. Log compaction: It is not practical for a long-running Raft server to store the complete logs forever. Instead, store a snapshot of the state from time. So Raft can discards log entries that precede the snapshot.
 2. The paper mentioned that **"if AppendEntries fails because of log inconsistency: decrement nextIndex and retry"**. In the implementation, `nextEntry` decrease by 1 at once, it may need to retry too many times if the replication lag is huge. By adding more information to the `AppendEntries` RPC's response, can you find a way to know how much should `nextEntry` decrease if log inconsistency occur?
+
+# Result
+![image](https://github.com/joan902614/NTHU-DS-Raft-Lab/assets/132533584/48daa1f5-0bcc-4de7-b34d-33da5e6bb4d8)
